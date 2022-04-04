@@ -505,7 +505,9 @@ spec:
           value: "frontend:80"
       containers:
       - name: main
-        image: gcr.io/google-samples/microservices-demo/loadgenerator:v0.3.6
+        image: loadgenerator:0f26c49fc5cfb64bac29bcc454881c246922defc0bbf2274018c167b2d957d74
+        ports:
+          - containerPort: 8089
         env:
         - name: FRONTEND_ADDR
           value: "frontend:80"
@@ -518,6 +520,20 @@ spec:
           limits:
             cpu: 500m
             memory: 512Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: loadgenservice
+spec:
+  type: LoadBalancer
+  selector:
+    app: loadgenerator
+  ports:
+    - name: http
+      port: 8089
+      targetPort: 8089
+
 ---
 apiVersion: apps/v1
 kind: Deployment
