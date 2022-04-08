@@ -505,7 +505,7 @@ spec:
           value: "frontend:80"
       containers:
       - name: main
-        image: loadgenerator:0f26c49fc5cfb64bac29bcc454881c246922defc0bbf2274018c167b2d957d74
+        image: loadgenerator
         ports:
           - containerPort: 8089
         env:
