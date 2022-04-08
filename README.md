@@ -1,3 +1,11 @@
+## Local Dev Setup
+
+In general all the images will be pulled from gcr except the modified loadgenerator image. Hence I have created a separate ```run-all.sh``` file which will manually create this image. 
+
+The yaml file is present in ```release/``` directory.
+
+Simply do ```./run-all.sh``` and it should start working. Kubernetes is required
+
 <p align="center">
 <img src="src/frontend/static/icons/Hipster_HeroLogoCyan.svg" width="300" alt="Online Boutique" />
 </p>
